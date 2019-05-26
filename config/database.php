@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Str;
+$heroku_db_url = parse_url(env('DATABASE_URL', "postgres://forge:forge@localhost:5432/forge"));
+// dd(getenv('DATABASE_URL'));
 return [
 
     /*
@@ -32,6 +35,16 @@ return [
     */
 
     'connections' => [
+        'sakacChat-heroku' => [
+            'driver'   => 'pgsql',
+            'host'     => $heroku_db_url['host'],
+            'database' => substr($heroku_db_url['path'], 1),
+            'username' => $heroku_db_url['user'],
+            'password' => $heroku_db_url['pass'],
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+         ],
 
         'sqlite' => [
             'driver' => 'sqlite',
@@ -41,11 +54,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'forge'),
-            'username' => env('DB_USERNAME', 'forge'),
-            'password' => env('DB_PASSWORD', ''),
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '33060'),
+            'database' => env('DB_DATABASE', 'sakacchat'),
+            'username' => env('DB_USERNAME', 'homestead'),
+            'password' => env('DB_PASSWORD', 'secret'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

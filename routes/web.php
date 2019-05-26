@@ -11,10 +11,16 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
-
+Route::get('profile', 'UserAvatarController@profile');
+Route::post('profile', 'UserAvatarController@update_avatar');
+Route::get('/artisan/storage', function() {
+    $command = 'storage:link';
+    $result = Artisan::call($command);
+    return Artisan::output();
+});
 
 
 Auth::routes();

@@ -78,7 +78,7 @@
       Picker,
       MessageList
     },
-    
+
     data () {
       return {
         message:null,
@@ -144,7 +144,7 @@
       });
 
     }
-    
+
   }
 </script>
 

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.Sakac Chat', 'Sakac Chat') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -26,9 +26,11 @@
     <div id="app">
         <v-toolbar fixed color="white">
             <v-toolbar-side-icon></v-toolbar-side-icon>
-            <v-toolbar-title> LChat</v-toolbar-title>
+            <v-toolbar-title>Sakac Chat</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
+
+
                     @guest
                         <v-btn flat href="{{ route('login') }}">Login</v-btn>
                         <v-btn flat href="{{ route('register') }}">Register</v-btn>
