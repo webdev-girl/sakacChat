@@ -11,9 +11,9 @@
 |
 */
 
-// Broadcast::channel('App.User.{id}', function ($user, $id) {
-//     return (int) $user->id === (int) $id;
-// });
+Broadcast::channel('App.User.{id}', function ($user, $id) {
+    return (int) $user->id === (int) $id;
+});
 
 Broadcast::channel('lchat', function ($user) {
     return auth()->check();
@@ -21,7 +21,7 @@ Broadcast::channel('lchat', function ($user) {
 
 Broadcast::channel('privatechat.{receiverid}', function ($user,$receiverid) {
 
-    return auth()->check();
+    return auth()->check()&& in_array($receiverid,$user->friends);
 });
 
 Broadcast::channel('plchat', function ($user) {
@@ -29,4 +29,9 @@ Broadcast::channel('plchat', function ($user) {
     if(auth()->check()){
         return $user;
     }
+});
+Broadcast::channel('lchat', function ($user) {
+    return true; //for public access
+    // or
+    return $user->can('plchat'); //using gate
 });

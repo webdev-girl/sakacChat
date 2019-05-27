@@ -236,7 +236,11 @@
                   this.allMessages.push(e.message)
                   setTimeout(this.scrollToEnd,100);
 
-              })
+              }),
+              Echo.channel('chat')
+                      .listen('.new.chat', (e) => {
+                          console.log(e);
+                  })
               .listenForWhisper('typing', (e) => {
 
                   if(e.user.id==this.activeFriend){

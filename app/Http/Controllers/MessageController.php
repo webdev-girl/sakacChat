@@ -14,12 +14,12 @@ class MessageController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function fetchMessages()
     {
         return Message::with('user')->get();
     }
-   
+
     public function privateMessages(User $user)
     {
         $privateCommunication= Message::with('user')
@@ -50,7 +50,7 @@ class MessageController extends Controller
 
 
         broadcast(new MessageSent(auth()->user(),$message->load('user')))->toOthers();
-        
+
         return response(['status'=>'Message sent successfully','message'=>$message]);
 
     }
@@ -71,9 +71,11 @@ class MessageController extends Controller
         }
 
         broadcast(new PrivateMessageSent($message->load('user')))->toOthers();
-        
+
         return response(['status'=>'Message private sent successfully','message'=>$message]);
 
     }
-   
+
+
+
 }

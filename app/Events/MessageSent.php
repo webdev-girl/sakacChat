@@ -30,11 +30,13 @@ class MessageSent implements ShouldBroadcast
         $this->message = $message;
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
+
+      // Get the channels the event should broadcast on.
+
+
+
+     @return \Illuminate\Broadcasting\Channel|array
+
     public function broadcastOn()
     {
         return new PrivateChannel('lchat');

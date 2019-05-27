@@ -1,4 +1,6 @@
 
+
+
 window._ = require('lodash');
 window.Popper = require('popper.js').default;
 
@@ -55,4 +57,9 @@ window.Echo = new Echo({
     key: 'PUSHER_APP_KEY',
     cluster: 'us3',
     encrypted: true
+    auth: {
+      headers: {
+          Authorization: 'Bearer ' + YourTokenLogin
+      },
+  },
 });
