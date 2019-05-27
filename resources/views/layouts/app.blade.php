@@ -11,7 +11,7 @@
     <title>{{ config('app.Sakac Chat', 'Sakac Chat') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://sakac-chat.herokuapp.com/js/app.js" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
