@@ -11,6 +11,7 @@
             <v-divider></v-divider>
 
             <message-list :user="user" :all-messages="allMessages"></message-list>
+
         </v-list>
       </v-card>
 

@@ -11,7 +11,7 @@
     <title>{{ config('app.Sakac Chat', 'Sakac Chat') }}</title>
 
     <!-- Scripts -->
-    <script src="https://sakac-chat.herokuapp.com/js/app.js" defer></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -21,7 +21,9 @@
 
     <!-- Styles -->
     <link href="https://sakac-chat.herokuapp.com/css/app.css" rel="stylesheet">
+
 </head>
+
 <body>
     <div id="app">
         <v-toolbar fixed color="white">
@@ -51,6 +53,15 @@
                 @yield('content')
             </v-container>
         </main>
+        <div id="app">
+            <div class="container">
+                <search-bar></search-bar>
+            </div>
+        </div>
     </div>
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> --}}
+    {{-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> --}}
+    {{-- <script src="js/app.js"></script> --}}
 </body>
 </html>

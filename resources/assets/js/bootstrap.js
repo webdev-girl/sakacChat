@@ -56,10 +56,10 @@ window.Echo = new Echo({
     broadcaster: 'pusher',
     key: 'PUSHER_APP_KEY',
     cluster: 'us3',
-    encrypted: true
-    auth: {
-      headers: {
-          Authorization: 'Bearer ' + YourTokenLogin
-      },
-  },
+    encrypted: true,
+  //   auth: {
+  //     headers: {
+  //         Authorization: 'Bearer ' + YourTokenLogin
+  //     },
+  // },
 });

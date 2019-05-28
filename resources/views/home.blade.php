@@ -2,5 +2,6 @@
 
 @section('content')
 
-        <Chat :user="{{auth()->user()}}"></Chat>
+    <Chat :user="{{auth()->user()}}"></Chat>
+
 @endsection
