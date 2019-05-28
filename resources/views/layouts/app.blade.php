@@ -16,7 +16,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
-
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
 
     <!-- Styles -->
@@ -53,15 +52,10 @@
                 @yield('content')
             </v-container>
         </main>
-        <div id="app">
-            <div class="container">
-                <search-bar></search-bar>
-            </div>
-        </div>
     </div>
 
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> --}}
-    {{-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> --}}
-    {{-- <script src="js/app.js"></script> --}}
-</body>
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> --}}
+        {{-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> --}}
+        {{-- <script src="js/app.js"></script> --}}
+    </body>
 </html>
