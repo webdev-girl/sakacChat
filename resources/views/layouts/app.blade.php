@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -16,13 +17,12 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
 </head>
-
 <body>
     <div id="app">
         <v-toolbar fixed color="white">
@@ -30,8 +30,6 @@
             <v-toolbar-title>Sakac Chat</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-toolbar-items class="hidden-sm-and-down">
-
-
                     @guest
                         <v-btn flat href="{{ route('login') }}">Login</v-btn>
                         <v-btn flat href="{{ route('register') }}">Register</v-btn>
@@ -53,9 +51,5 @@
             </v-container>
         </main>
     </div>
-
-        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script> --}}
-        {{-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> --}}
-        {{-- <script src="js/app.js"></script> --}}
-    </body>
+</body>
 </html>

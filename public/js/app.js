@@ -17683,8 +17683,6 @@ var app = new Vue({
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_laravel_echo__ = __webpack_require__(71);
-
-
 window._ = __webpack_require__(48);
 window.Popper = __webpack_require__(41).default;
 
@@ -41088,7 +41086,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.chat-card[data-v-2fb0154f]{\r\n  margin-bottom:140px;\n}\n.floating-div[data-v-2fb0154f]{\r\n    position: fixed;\n}\n.chat-card img[data-v-2fb0154f] {\r\n    max-width: 300px;\r\n    max-height: 200px;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.chat-card[data-v-2fb0154f]{\r\n  margin-bottom:140px;\n}\n.floating-div[data-v-2fb0154f]{\r\n    position: fixed;\n}\n.chat-card img[data-v-2fb0154f] {\r\n    max-width: 300px;\r\n    max-height: 200px;\n}\r\n", ""]);
 
 // exports
 
@@ -41207,7 +41205,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 
@@ -41228,7 +41225,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     };
   },
 
-
   methods: {
     sendMessage: function sendMessage() {
       var _this = this;
@@ -41237,7 +41233,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (!this.message) {
         return alert('Please enter message');
       }
-
       axios.post('/messages', { message: this.message }).then(function (response) {
         _this.message = null;
         _this.emoStatus = false;
@@ -41269,13 +41264,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.emoStatus = !this.emoStatus;
     }
   },
-
   mounted: function mounted() {},
   created: function created() {
     var _this3 = this;
 
     this.fetchMessages();
-
     Echo.private('lchat').listen('MessageSent', function (e) {
       _this3.allMessages.push(e.message);
       setTimeout(_this3.scrollToEnd, 100);
@@ -41318,7 +41311,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.chat-card[data-v-fab27d88]{\r\n  margin-bottom:140px;\n}\n.floating-div[data-v-fab27d88]{\r\n    position: fixed;\n}\n.chat-card img[data-v-fab27d88] {\r\n    max-width: 300px;\r\n    max-height: 200px;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.chat-card[data-v-fab27d88]{\nmargin-bottom:140px;\n}\n.floating-div[data-v-fab27d88]{\nposition: fixed;\n}\n.chat-card img[data-v-fab27d88] {\nmax-width: 300px;\nmax-height: 200px;\n}\n", ""]);
 
 // exports
 
@@ -41365,14 +41358,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['user', 'allMessages']
-
 });
 
 /***/ }),
@@ -41413,9 +41401,9 @@ var render = function() {
                       },
                       [
                         _vm._v(
-                          "\n                    " +
+                          "\n                  " +
                             _vm._s(message.message) +
-                            "\n\n                "
+                            "\n\n              "
                         )
                       ]
                     )
@@ -41434,9 +41422,7 @@ var render = function() {
             _vm._v(" "),
             _c("v-flex", { staticClass: "caption font-italic" }, [
               _vm._v(
-                "\n                " +
-                  _vm._s(message.created_at) +
-                  "\n            "
+                "\n              " + _vm._s(message.created_at) + "\n          "
               )
             ])
           ],
@@ -41727,7 +41713,7 @@ exports = module.exports = __webpack_require__(0)(false);
 
 
 // module
-exports.push([module.i, "\n.online-users[data-v-121a3c54],.messages[data-v-121a3c54]{\r\n  overflow-y:scroll;\r\n  height:100vh;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.online-users[data-v-121a3c54],.messages[data-v-121a3c54]{\n  overflow-y:scroll;\n  height:100vh;\n}\n", ""]);
 
 // exports
 
@@ -41831,7 +41817,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
+//
+//
+//
 
 
 
@@ -41854,10 +41842,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       emoStatus: false,
       users: [],
       token: document.head.querySelector('meta[name="csrf-token"]').content
-
     };
   },
-
 
   computed: {
     friends: function friends() {
@@ -41868,7 +41854,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     }
   },
-
   watch: {
     files: {
       deep: true,
@@ -41886,12 +41871,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(val);
     }
   },
-
   methods: {
     onTyping: function onTyping() {
       Echo.private('privatechat.' + this.activeFriend).whisper('typing', {
         user: this.user
-
       });
     },
     sendMessage: function sendMessage() {
@@ -41904,7 +41887,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (!this.activeFriend) {
         return alert('Please select friend');
       }
-
       axios.post('/private-messages/' + this.activeFriend, { message: this.message }).then(function (response) {
         _this2.message = null;
         _this2.allMessages.push(response.data.message);
@@ -41953,13 +41935,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log('onrespnse file up', e);
     }
   },
-
   mounted: function mounted() {},
   created: function created() {
     var _this5 = this;
 
     this.fetchUsers();
-
     Echo.join('plchat').here(function (users) {
       console.log('online', users);
       _this5.onlineFriends = users;
@@ -41976,16 +41956,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       _this5.activeFriend = e.message.user_id;
       _this5.allMessages.push(e.message);
       setTimeout(_this5.scrollToEnd, 100);
-    }), Echo.channel('chat').listen('.new.chat', function (e) {
-      console.log(e);
     }).listenForWhisper('typing', function (e) {
-
       if (e.user.id == _this5.activeFriend) {
-
         _this5.typingFriend = e.user;
 
         if (_this5.typingClock) clearTimeout();
-
         _this5.typingClock = setTimeout(function () {
           _this5.typingFriend = {};
         }, 9000);
@@ -42051,11 +42026,7 @@ var render = function() {
                     "v-list-tile-content",
                     [_c("v-list-tile-title", [_vm._v(_vm._s(friend.name))])],
                     1
-                  ),
-                  _vm._v(" "),
-                  _c("v-list-tile-avatar", [
-                    _c("img", { attrs: { src: _vm.item.avatar } })
-                  ])
+                  )
                 ],
                 1
               )

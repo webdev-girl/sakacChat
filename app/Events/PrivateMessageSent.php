@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Events;
-
 use App\User;
 use App\Message;
 use Illuminate\Broadcasting\Channel;
@@ -11,13 +9,10 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-
 class PrivateMessageSent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-
     public $message;
-
     /**
      * Create a new event instance.
      *
@@ -27,19 +22,13 @@ class PrivateMessageSent implements ShouldBroadcast
     {
         $this->message = $message;
     }
-
-    // /**
-    //  * Get the channels the event should broadcast on.
-    //  *
-     @return \Illuminate\Broadcasting\Channel|array
-
+    /**
+     * Get the channels the event should broadcast on.
+     *
+     * @return \Illuminate\Broadcasting\Channel|array
+     */
     public function broadcastOn()
     {
         return new PrivateChannel('privatechat.'.$this->message->receiver_id);
     }
-    //
-    //     public function broadcastAs()
-    // {
-    //     return 'new.chat';
-    // }
 }

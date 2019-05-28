@@ -11,7 +11,6 @@
             <v-divider></v-divider>
 
             <message-list :user="user" :all-messages="allMessages"></message-list>
-
         </v-list>
       </v-card>
 
@@ -89,15 +88,12 @@
         token:document.head.querySelector('meta[name="csrf-token"]').content
       }
     },
-
     methods:{
       sendMessage(){
-
         //check if there message
         if(!this.message){
           return alert('Please enter message');
         }
-
           axios.post('/messages', {message: this.message}).then(response => {
                     this.message=null;
                     this.emoStatus=false;
@@ -108,10 +104,8 @@
       fetchMessages() {
             axios.get('/messages').then(response => {
                 this.allMessages = response.data;
-
             });
         },
-
       scrollToEnd(){
         window.scrollTo(0,99999);
       },
@@ -128,22 +122,16 @@
       toggleEmo(){
             this.emoStatus= !this.emoStatus;
       }
-
     },
-
     mounted(){
     },
-
     created(){
       this.fetchMessages();
-
       Echo.private('lchat')
       .listen('MessageSent',(e)=>{
           this.allMessages.push(e.message)
           setTimeout(this.scrollToEnd,100);
-
       });
-
     }
 
   }
@@ -160,5 +148,4 @@
     max-width: 300px;
     max-height: 200px;
 }
-
 </style>

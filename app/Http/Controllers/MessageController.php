@@ -7,7 +7,6 @@ use App\Message;
 use App\Events\MessageSent;
 use Illuminate\Http\Request;
 use App\Events\PrivateMessageSent;
-
 class MessageController extends Controller
 {
     public function __construct()
@@ -28,14 +27,10 @@ class MessageController extends Controller
             $query->where(['user_id' => $user->id, 'receiver_id' => auth()->id()]);
         })
         ->get();
-
         return $privateCommunication;
     }
-
     public function sendMessage(Request $request)
     {
-
-
         if(request()->has('file')){
             $filename = request('file')->store('chat');
             $message=Message::create([
@@ -45,16 +40,11 @@ class MessageController extends Controller
             ]);
         }else{
             $message = auth()->user()->messages()->create(['message' => $request->message]);
-
         }
-
-
         broadcast(new MessageSent(auth()->user(),$message->load('user')))->toOthers();
 
         return response(['status'=>'Message sent successfully','message'=>$message]);
-
     }
-
     public function sendPrivateMessage(Request $request,User $user)
     {
         if(request()->has('file')){
@@ -69,13 +59,9 @@ class MessageController extends Controller
             $input['receiver_id']=$user->id;
             $message=auth()->user()->messages()->create($input);
         }
-
         broadcast(new PrivateMessageSent($message->load('user')))->toOthers();
 
         return response(['status'=>'Message private sent successfully','message'=>$message]);
-
     }
-
-
 
 }
